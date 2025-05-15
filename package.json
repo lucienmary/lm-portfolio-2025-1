@@ -1,0 +1,24 @@
+{
+  "name": "lm-portfolio-2025-1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve:php": "php -S 127.0.0.1:8000 -t public"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.6",
+    "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "@splidejs/splide": "^4.1.4",
+    "@tailwindcss/vite": "^4.1.6"
+  }
+}

@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@theme {
+    --font-sans-serif: 'Space Grotesk';
+    --font-serif: 'Zilla Slab';
+}

@@ -1,0 +1,7 @@
+{
+    "name": "moi/portfolio",
+    "require": {
+        "league/commonmark": "^2.7",
+        "symfony/yaml": "^6.4"
+    }
+}
