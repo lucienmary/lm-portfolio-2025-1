@@ -1,41 +1,81 @@
-// src/main.js
 import Swiper from "swiper/bundle";
-import "swiper/css/bundle"; // inclut core + navigation + pagination + scrollbar
+import "swiper/css/bundle";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const el = document.querySelector(".swiper");
-  if (!el) return;
+    const swiperEl = document.querySelector(".swiper");
+    if (!swiperEl) return;
+    const swiper = new Swiper(swiperEl, {
+        direction: "horizontal",
+        loop: true,
+        autoHeight: true,
+        speed: 1200,
+        navigation: {
+            nextEl: ".swiper-button-next-nostyle",
+            prevEl: ".swiper-button-prev-nostyle",
+        },
+    });
 
-  new Swiper(el, {
-    direction: "horizontal",
-    loop: true,
-    navigation: {
-      nextEl: ".swiper-button-next-nostyle",
-      prevEl: ".swiper-button-prev-nostyle",
-    },
-    autoHeight: true,
-    speed: 1200,
-  });
-});
+    [
+        { selector: ".swiper-button-prev-nostyle", method: "slidePrev" },
+        { selector: ".swiper-button-next-nostyle", method: "slideNext" }
+    ].forEach(({ selector, method }) => {
+        const btn = document.querySelector(selector);
+        if (!btn) return;
+        btn.addEventListener("click", e => {
+            const elems = document.elementsFromPoint(e.clientX, e.clientY);
+            const link  = elems.find(el => el.tagName === "A");
+            if (link) {
+                e.preventDefault();
+                e.stopPropagation();
+                link.click();
+            } else {
+                swiper[method]();
+            }
+        });
+    });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const parent = document.querySelector(".follow-cursor-wrapper");
-  const follower = parent.querySelector(".follow-cursor");
+    const wrapper  = document.querySelector(".follow-cursor-wrapper");
+    const follower = wrapper?.querySelector(".follow-cursor");
+    if (!wrapper || !follower) return;
 
-  parent.addEventListener("mousemove", (e) => {
-    const rect = parent.getBoundingClientRect();
-    const x = e.clientX - rect.left - follower.offsetWidth / 2;
-    const y = e.clientY - rect.top - follower.offsetHeight / 2;
-    const under = document.elementFromPoint(e.clientX, e.clientY);
-    const isLeft = !!under.closest(".swiper-button-prev-nostyle");
+    let posX      = 0;
+    let posY      = 0;
+    let targetX   = 0;
+    let targetY   = 0;
+    let rot       = 0;
+    let targetRot = 0;
 
-    follower.style.setProperty("--fc-x", `${x}px`);
-    follower.style.setProperty("--fc-y", `${y}px`);
-    follower.style.setProperty("--fc-r", isLeft ? "180deg" : "0deg");
-    follower.classList.add("opacity-100");
-  });
+    function animate() {
+        posX    += (targetX   - posX)   * 0.15;
+        posY    += (targetY   - posY)   * 0.15;
+        rot     += (targetRot - rot)    * 0.15;
 
-  parent.addEventListener("mouseleave", () => {
-    follower.classList.remove("opacity-100");
-  });
+        follower.style.transform =
+            `translate(${posX}px, ${posY}px) rotate(${rot}deg)`;
+
+        requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+
+    wrapper.addEventListener("mousemove", e => {
+        const rect = wrapper.getBoundingClientRect();
+        targetX = e.clientX - rect.left  - follower.offsetWidth  / 2;
+        targetY = e.clientY - rect.top   - follower.offsetHeight / 2;
+
+        const elems   = document.elementsFromPoint(e.clientX, e.clientY);
+        const overLink = elems.some(el =>
+            el.tagName === "A" && el.href.includes("/project.php?slug"));
+        const overPrev = elems.some(el =>
+            el.classList?.contains("swiper-button-prev-nostyle"));
+
+        if (overLink)      targetRot = -90;
+        else if (overPrev) targetRot = 180;
+        else               targetRot = 0;
+
+        follower.classList.add("opacity-100");
+    });
+
+    wrapper.addEventListener("mouseleave", () => {
+        follower.classList.remove("opacity-100");
+    });
 });

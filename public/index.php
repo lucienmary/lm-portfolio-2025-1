@@ -175,15 +175,14 @@ include __DIR__ . '/../templates/header.php';
             </div>
             <div
                 class="follow-cursor absolute top-0 left-0 pointer-events-none
-                z-10 opacity-0
-                w-[36px] h-[36px] bg-gray-950 text-white rounded-full
-                flex items-center justify-center text-center
-                transition-[transform_75ms_ease-out,opacity_200ms_ease]
-                will-change-[transform,opacity]
-                translate-x-[var(--fc-x)] translate-y-[var(--fc-y)]
-                rotate-[var(--fc-r)]
-                "
-                style="--fc-x:0px; --fc-y:0px; --fc-r:0deg;">
+         z-10 opacity-0
+         w-[36px] h-[36px] bg-gray-950 text-white rounded-full
+         flex items-center justify-center text-center
+        transition-opacity duration-200 will-change-transform
+         translate-x-[var(--fc-x)] translate-y-[var(--fc-y)]
+         rotate-[var(--fc-r)]"
+  style="--fc-x:0px; --fc-y:0px; --fc-r:0deg;"
+>
                 <svg class="fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <title>chevron-right</title>
                     <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
@@ -193,7 +192,7 @@ include __DIR__ . '/../templates/header.php';
     </div>
 </section>
 
-<section class="bg-white text-black text-center pb-36">
+<section class="bg-white text-black text-center pt-12 pb-48">
     <div class="container m-auto">
         <h2 class="font-sans-serif font-medium text-6xl/20">Me contacter&nbsp;?</h2>
         <div class="font-sans-serif text-2xl flex gap-6 justify-center mt-18">
