@@ -4,3 +4,8 @@
     --font-sans-serif: 'Space Grotesk';
     --font-serif: 'Zilla Slab';
 }
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
