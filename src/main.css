@@ -3,9 +3,87 @@
 @theme {
     --font-sans-serif: 'Space Grotesk';
     --font-serif: 'Zilla Slab';
+
+    --color-main: #111112;
+    --color-main-path: #1D1D21;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 .swiper {
     width: 100%;
     height: 100%;
+}
+
+.btn-magic,#product_actions .btn {
+    position: relative;
+    cursor: pointer;
+    isolation: isolate;
+    overflow: hidden
+}
+
+.btn-magic:hover:after,.btn-magic:focus:after,#product_actions .btn:hover:after,#product_actions .btn:focus:after {
+    opacity: 0.25;
+    transition: opacity 0.5s ease-in-out
+}
+
+.btn-magic:after,#product_actions .btn:after {
+    --hover-cursor-effect: radial-gradient(
+        color-mix(in srgb, white 30%, var(--hover-color)) 0%,
+        transparent 60%
+    );
+    content: "";
+    position: absolute;
+    top: var(--y);
+    left: var(--x);
+    transform: translate(-50%,-50%) scale(0.6);
+    z-index: 1;
+    width: 200%;
+    aspect-ratio: 1/1;
+    border-radius: 20%;
+    background: var(--hover-cursor-effect);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.1s ease-in-out;
+    z-index: -1;
+}
+
+.wing {
+    margin-bottom: -1px;
+    margin-left: 5px;
+    margin-right: 5px;
+    display: inline-block;
+    align-self: center;
+    width: 13px;
+    height: 13px;
+    border-radius: 4px;
+    background-color: var(--color-green-500);
+}
+
+.wing:after {
+    margin-bottom: -1px;
+    content: "";
+    position: absolute;
+    margin-left: 0px;
+    display: block;
+    align-self: center;
+    width: 13px;
+    height: 13px;
+    border-radius: 30%;
+    background-color: var(--color-green-500);
+    z-index: -1;
+    animation: wing infinite 1.4s;
+}
+
+@keyframes wing {
+    0% {
+        scale: 1;
+        opacity: 0.4;
+    }
+    100% {
+        scale: 1.7;
+        opacity: 0;
+    }
 }

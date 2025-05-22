@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
         loop: true,
         autoHeight: true,
         speed: 1200,
+        spaceBetween: 100,
         navigation: {
             nextEl: ".swiper-button-next-nostyle",
             prevEl: ".swiper-button-prev-nostyle",
@@ -77,5 +78,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     wrapper.addEventListener("mouseleave", () => {
         follower.classList.remove("opacity-100");
+    });
+
+    document.querySelectorAll(".btn-magic").forEach(btn => {
+        btn.addEventListener("mousemove", function(e) {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            btn.style.setProperty("--x", x + "px");
+            btn.style.setProperty("--y", y + "px");
+            btn.style.setProperty("--hover-color", window.getComputedStyle(btn).borderColor);
+        });
     });
 });

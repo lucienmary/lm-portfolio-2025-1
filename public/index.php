@@ -53,24 +53,24 @@ include __DIR__ . '/../templates/header.php';
                     <span class="text-3xl font-extralight text-gray-400">Hello, je suis</span>
                     <span class="font-bold block text-9xl ">Lucien Mary</span>
                     <span class="text-5xl/24 font-normal">Développeur Front end</span>
-                    <span class="border px-3 rounded-full">Disponible</span>
+                    <span class="text-sm border border-gray-400 text-gray-300 pe-3 py-[2px] mt-9 ms-3 inline-block rounded-lg align-top"><span class="wing"></span> Disponible</span>
                 </h1>
                 <div class="font-sans-serif font-light text-2xl pt-18 flex gap-6">
-                    <a href="#" class="border px-4 py-1 rounded-lg border-blue-500">
+                    <a href="#" class="border px-4 py-1 rounded-lg border-blue-500 hover:border-blue-400 duration-100 btn-magic">
                         <svg class="w-[24px] inline fill-white mt-[-4px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <title>linkedin</title>
                             <path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z" />
                         </svg>
                         LinkedIn
                     </a>
-                    <a href="#" class="border px-4 py-1 rounded-lg border-red-400">
+                    <a href="#" class="border px-4 py-1 rounded-lg border-red-400 hover:border-red-300 duration-100 btn-magic">
                         <svg class="w-[24px] inline fill-white mt-[-4px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <title>email-outline</title>
                             <path d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6M20 6L12 11L4 6H20M20 18H4V8L12 13L20 8V18Z" />
                         </svg>
                         Mail
                     </a>
-                    <a href="#" class="border px-4 py-1 rounded-lg border-green-500">
+                    <a href="#" class="border px-4 py-1 rounded-lg border-green-500 hover:border-green-400 duration-100 btn-magic">
                         <svg class="w-[24px] inline fill-white mt-[-4px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <title>list-box-outline</title>
                             <path d="M11 15H17V17H11V15M9 7H7V9H9V7M11 13H17V11H11V13M11 9H17V7H11V9M9 11H7V13H9V11M21 5V19C21 20.1 20.1 21 19 21H5C3.9 21 3 20.1 3 19V5C3 3.9 3.9 3 5 3H19C20.1 3 21 3.9 21 5M19 5H5V19H19V5M9 15H7V17H9V15Z" />
@@ -80,11 +80,16 @@ include __DIR__ . '/../templates/header.php';
                 </div>
             </div>
             <div>
-                <img src="#" alt="Photo de Lucien Mary">
+                <!-- <img src="../content/img/bg-lm-hero.svg" alt="Photo de Lucien Mary"> -->
+                <svg width="469" height="521" viewBox="0 0 469 521" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                        <path d="M8.69819 242.046C-20.8321 420.587 114.691 495.536 186.144 510.693C245.1 523.354 398.53 519.191 446.439 383.282C494.348 247.374 439.133 86.5092 360.524 26.8938C281.915 -32.7216 45.6111 18.8704 8.69819 242.046Z" class="fill-main-path opacity-70" />
+                    </g>
+                </svg>
             </div>
         </div>
     </div>
-    <div class="absolute top-0 right-0 bottom-0 left-0 -z-10 opacity-5">
+    <div class="absolute top-0 right-0 bottom-0 left-0 -z-10 opacity-3">
         <div class="vertical-line flex justify-around h-full w-full absolute">
             <div class="border-e"></div>
             <div class="border-e"></div>
@@ -102,7 +107,7 @@ include __DIR__ . '/../templates/header.php';
     </div>
 </section>
 
-<section class="relative">
+<section id="about" class="relative">
     <div class="container m-auto px-24 py-48 font-light grid grid-cols-3 gap-24">
         <div class="col-span-2 text-lg">
             <h2 class="font-sans-serif font-medium text-3xl/20">Qui suis-je&nbsp;?</h2>
@@ -147,10 +152,12 @@ include __DIR__ . '/../templates/header.php';
                         <div class="swiper-slide flex items-center justify-center h-full">
                             <div class="grid grid-cols-3 gap-24 w-full">
                                 <?php if (!empty($p['image'])): ?>
-                                    <div class="p-4 col-span-2 border rounded-4xl">
-                                        <img src="<?= htmlspecialchars($p['image'], ENT_QUOTES) ?>"
-                                            alt="<?= htmlspecialchars($p['title'], ENT_QUOTES) ?>"
-                                            class="rounded-3xl shadow-md w-full h-auto object-cover">
+                                    <div class="p-[1px] col-span-2 bg-[linear-gradient(to_bottom_left,rgba(17,17,18,1)_1%,rgba(46,151,255,1)_18%,rgba(46,151,255,1)_32%,rgba(17,17,18,1)_50%,rgba(250,0,217,0.88)_68%,rgba(250,0,217,0.88)_82%,rgba(17,17,18,0.75)_100%)] rounded-4xl-1 rounded-[calc(theme('borderRadius.4xl')_+_1px)]">
+                                        <div class="rounded-4xl w-full h-auto object-cover p-4 bg-white">
+                                            <img src="<?= htmlspecialchars($p['image'], ENT_QUOTES) ?>"
+                                                alt="<?= htmlspecialchars($p['title'], ENT_QUOTES) ?>"
+                                                class="shadow-md rounded-3xl">
+                                        </div>
                                     </div>
                                 <?php endif; ?>
                                 <div class="col-span-1 flex flex-col justify-center">
@@ -181,8 +188,7 @@ include __DIR__ . '/../templates/header.php';
         transition-opacity duration-200 will-change-transform
          translate-x-[var(--fc-x)] translate-y-[var(--fc-y)]
          rotate-[var(--fc-r)]"
-  style="--fc-x:0px; --fc-y:0px; --fc-r:0deg;"
->
+                style="--fc-x:0px; --fc-y:0px; --fc-r:0deg;">
                 <svg class="fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <title>chevron-right</title>
                     <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
@@ -196,14 +202,14 @@ include __DIR__ . '/../templates/header.php';
     <div class="container m-auto">
         <h2 class="font-sans-serif font-medium text-6xl/20">Me contacter&nbsp;?</h2>
         <div class="font-sans-serif text-2xl flex gap-6 justify-center mt-18">
-            <a href="#" class="border px-4 py-1 rounded-lg border-blue-500">
+            <a href="#" class="border px-4 py-1 rounded-lg border-blue-500 hover:border-blue-400 duration-100 btn-magic">
                 <svg class="w-[24px] inline fill-black mt-[-4px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <title>linkedin</title>
                     <path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z" />
                 </svg>
                 par LinkedIn
             </a>
-            <a href="#" class="border px-4 py-1 rounded-lg border-red-400">
+            <a href="#" class="border px-4 py-1 rounded-lg border-red-400 hover:border-red-300 duration-100 btn-magic">
                 <svg class="w-[24px] inline fill-black mt-[-4px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <title>email-outline</title>
                     <path d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6M20 6L12 11L4 6H20M20 18H4V8L12 13L20 8V18Z" />
@@ -211,7 +217,7 @@ include __DIR__ . '/../templates/header.php';
                 par Mail
             </a>
         </div>
-        <p class="mt-8">ou téléchargez mon <a href="#" class="border px-2 py-0 ms-1 rounded-md border-green-500">curriculum vitae</a></p>
+        <p class="mt-8">ou téléchargez mon <a href="#" class="border px-2 py-0 ms-1 rounded-md inline-flex border-green-500 hover:border-green-400 duration-100 btn-magic">curriculum vitae</a></p>
     </div>
 </section>
 

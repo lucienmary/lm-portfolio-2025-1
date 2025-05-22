@@ -20,13 +20,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 </head>
 
-<body class="bg-gray-950 text-gray-200 flex flex-col min-h-screen font-serif">
-    <header class="fixed top-0 w-screen font-sans-serif">
+<body class="bg-main text-gray-200 flex flex-col min-h-screen font-serif">
+    <header class="fixed top-0 w-screen font-sans-serif z-100">
         <div class="container m-auto flex place-content-end py-6">
             <p class="me-auto hidden">Lucien Mary</p>
             <nav class="space-x-4 font-light" aria-label="Liens de menu">
-                <a href="#">À propos</a>
-                <a href="#">Mes projets</a>
+                <a href="/index.php">Accueil</a>
+                <a href="/index.php#about">À propos</a>
+                <a href="/project.php">Mes projets</a>
                 <a href="#">Me contacter</a>
             </nav>
         </div>
