@@ -6,6 +6,12 @@
 
     --color-main: #111112;
     --color-main-path: #1D1D21;
+    --color-header: rgba(23, 23, 28, 0.8);
+}
+
+*::selection {
+  color: var(--color-white);
+  background-color: var(--color-green-400);
 }
 
 html {

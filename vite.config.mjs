@@ -1,34 +1,35 @@
 import { defineConfig } from "vite";
 import tailwindcss from "@tailwindcss/vite";
+import path from "path";
 
 export default defineConfig({
-  root: process.cwd(),
-  base: "/",
-  build: {
-    outDir: "public/dist",
-    emptyOutDir: true,
-    rollupOptions: {
-      input: {
-        main: "src/main.js",
-      },
-    },
-  },
+  // on reste à la racine du projet :
+  root: path.resolve(__dirname),
+
+  // sert “public/” comme dossier statique (images, .htaccess…)
+  publicDir: "public",
   plugins: [tailwindcss()],
   server: {
     port: 5173,
     strictPort: true,
-    hmr: {
-      protocol: 'ws',
-      host: 'localhost',
-      port: 5173,
-    },
+    // (optionnel) proxy si tu veux ouvrir tes .php sur le port 5173
     proxy: {
-      // les requêtes API ou pages => PHP
-      '^/(.+)\\.php$': {
-        target: "http://127.0.0.1:8000",
+      '^/.*\\.php($|\\?)': {
+        target: "http://localhost:8000",
         changeOrigin: true,
         secure: false,
       },
+    },
+  },
+
+  build: {
+    // en prod, bundle dans public/dist
+    outDir: "public/dist",
+    emptyOutDir: false,
+    manifest: true,
+    rollupOptions: {
+      // point d’entrée JS/TS
+      input: path.resolve(__dirname, "src/main.js"),
     },
   },
 });

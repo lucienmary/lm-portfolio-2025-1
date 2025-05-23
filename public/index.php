@@ -47,8 +47,8 @@ include __DIR__ . '/../templates/header.php';
 
 <section class="min-h-screen flex relative">
     <div class="container m-auto">
-        <div class="flex">
-            <div class="">
+        <div class="px-24 relative">
+            <div class="relative z-1">
                 <h1 class="font-sans-serif">
                     <span class="text-3xl font-extralight text-gray-400">Hello, je suis</span>
                     <span class="font-bold block text-9xl ">Lucien Mary</span>
@@ -79,9 +79,9 @@ include __DIR__ . '/../templates/header.php';
                     </a>
                 </div>
             </div>
-            <div>
+            <div class="absolute top-1/2 left-1/2 -translate-y-1/2 ps-10 z-0">
                 <!-- <img src="../content/img/bg-lm-hero.svg" alt="Photo de Lucien Mary"> -->
-                <svg width="469" height="521" viewBox="0 0 469 521" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="33.33vw" viewBox="0 0 469 521" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g>
                         <path d="M8.69819 242.046C-20.8321 420.587 114.691 495.536 186.144 510.693C245.1 523.354 398.53 519.191 446.439 383.282C494.348 247.374 439.133 86.5092 360.524 26.8938C281.915 -32.7216 45.6111 18.8704 8.69819 242.046Z" class="fill-main-path opacity-70" />
                     </g>
@@ -105,6 +105,14 @@ include __DIR__ . '/../templates/header.php';
             <div class="border-t"></div>
         </div>
     </div>
+
+    <div class="shape-pink-1 bg-fuchsia-800 w-60 h-100 rounded-full blur-[120px] absolute top-5 -right-60 -z-10"></div>
+    <div class="shape-blue-1 bg-sky-800 w-100 h-70 rounded-full blur-[120px] absolute -top-50 -right-15 rotate-30 -z-10"></div>
+    <div class="shape-white-1 bg-white w-20 h-20 rounded-full blur-[120px] absolute top-10 -right-10 -z-10"></div>
+
+    <div class="shape-pink-2 bg-fuchsia-800 w-100 h-70 rounded-full blur-[120px] absolute -bottom-50 -left-45 rotate-60 -z-10"></div>
+    <div class="shape-blue-2 bg-sky-800 w-60 h-100 rounded-full blur-[120px] absolute bottom-5 -left-60 rotate-30 -z-10"></div>
+    <div class="shape-white-2 bg-white w-20 h-20 rounded-full blur-[120px] absolute bottom-10 -left-10 -z-10"></div>
 </section>
 
 <section id="about" class="relative">
@@ -198,7 +206,7 @@ include __DIR__ . '/../templates/header.php';
     </div>
 </section>
 
-<section class="bg-white text-black text-center pt-12 pb-48">
+<section id="contact" class="bg-white text-black text-center pt-12 pb-48">
     <div class="container m-auto">
         <h2 class="font-sans-serif font-medium text-6xl/20">Me contacter&nbsp;?</h2>
         <div class="font-sans-serif text-2xl flex gap-6 justify-center mt-18">
