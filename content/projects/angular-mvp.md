@@ -23,4 +23,6 @@ Un petit paragraphe d’intro qui décrit le projet dans son ensemble.
 1. **Défi A** : solution apportée…  
 2. **Défi B** : comment tu l’as résolu…  
 
-![Aperçu du projet](/assets/images/projet.jpg)
+<!--STACK-->
+- Angular
+- Tailwind

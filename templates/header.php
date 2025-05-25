@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars($meta['title'] ?? 'Mon Portfolio', ENT_QUOTES) ?></title>
+    <title><?= htmlspecialchars($meta['title'] ?? 'Portfolio', ENT_QUOTES) ?> - Lucien Mary - Développeur Front end / UI/UX webdesigner</title>
     <?php if (getenv('APP_ENV') === 'dev'): ?>
         <!-- HMR + dev client Vite -->
         <script type="module" src="http://localhost:5173/@vite/client"></script>
@@ -31,10 +31,10 @@
         <div class="container m-auto flex place-content-end px-6 py-6">
             <a id="logo" class="me-auto text-2xl/[21px] opacity-0 duration-300" href="/index.php">Lucienmary.be</a>
             <nav class="space-x-4 font-light" aria-label="Liens de menu">
-                <a href="/index.php">Accueil</a>
-                <a href="/index.php#about">À propos</a>
-                <a href="projects.php">Mes projets</a>
-                <a href="#contact">Me contacter</a>
+                <a class="hover:text-gray-400 duration-200" href="/index.php">Accueil</a>
+                <a class="hover:text-gray-400 duration-200" href="/index.php#about">À propos</a>
+                <a class="hover:text-gray-400 duration-200" href="projects.php">Mes projets</a>
+                <a class="hover:text-gray-400 duration-200" href="#contact">Me contacter</a>
             </nav>
         </div>
     </header>

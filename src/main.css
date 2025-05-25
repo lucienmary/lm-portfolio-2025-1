@@ -93,3 +93,40 @@ html {
         opacity: 0;
     }
 }
+
+/* Styles for md files imported */
+/* To change with Typography plugin */
+
+.markdown-import h3 {
+    font-family: var(--font-sans-serif);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--text-2xl);
+    margin-top: .25rem;
+    margin-bottom: .5rem;
+}
+
+.markdown-import h4 {
+    font-family: var(--font-sans-serif);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--text-xl);
+    margin-top: .25rem;
+    margin-bottom: .5rem;
+}
+
+.markdown-import p {
+    margin-bottom: .75rem;
+}
+
+.markdown-import ul {
+    margin-bottom: .75rem;
+    list-style: disc;
+}
+
+.markdown-import ol {
+    margin-bottom: .75rem;
+    list-style: number;
+}
+
+.markdown-import strong {
+    font-weight: var(--font-weight-medium);
+}
