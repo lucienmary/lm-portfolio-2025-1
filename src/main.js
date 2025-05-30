@@ -37,7 +37,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const wrapper = document.querySelector(".follow-cursor-wrapper");
   const follower = wrapper?.querySelector(".follow-cursor");
+  const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+  const lgBreakpointValue = window.getComputedStyle(document.body).getPropertyValue('--breakpoint-lg');
+  const lgBreakpointPx = remToPx(lgBreakpointValue);
+
+  function remToPx(rem) {
+    let remValue = rem.split('rem');
+    return remValue[0] * rootFontSize;
+  }
+
   if (!wrapper || !follower) return;
+  if (lgBreakpointPx > document.documentElement.clientWidth) return;
 
   let posX = 0;
   let posY = 0;
@@ -96,12 +106,44 @@ document.querySelectorAll(".btn-magic").forEach((btn) => {
   });
 });
 
-document.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
-        document.getElementById('header').classList.add('bg-header', 'backdrop-blur-sm', 'shadow-gray-800/30', 'shadow-[inset_0_-1px_15px]');
-        document.getElementById('logo').classList.add('opacity-100');
-    }else {
-        document.getElementById('header').classList.remove('bg-header', 'backdrop-blur-sm', 'shadow-gray-800/30', 'shadow-[inset_0_-1px_15px]');
-        document.getElementById('logo').classList.remove('opacity-100');
-    }
-})
+document.addEventListener("scroll", () => {
+  if (window.scrollY > 100) {
+    document
+      .getElementById("header")
+      .classList.add(
+        "bg-header",
+        "backdrop-blur-sm",
+        "shadow-gray-800/30",
+        "shadow-[inset_0_-1px_15px]"
+      );
+    document.getElementById("logo").classList.add("opacity-100");
+  } else {
+    document
+      .getElementById("header")
+      .classList.remove(
+        "bg-header",
+        "backdrop-blur-sm",
+        "shadow-gray-800/30",
+        "shadow-[inset_0_-1px_15px]"
+      );
+    document.getElementById("logo").classList.remove("opacity-100");
+  }
+});
+
+// Menu.
+
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.querySelector('button[aria-controls="mobile-menu"]');
+  const menu = document.getElementById('mobile-menu');
+  const [iconOpen, iconClose] = btn.querySelectorAll('svg');
+
+  menu.classList.add('hidden');
+
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+    iconOpen.classList.toggle('hidden');
+    iconOpen.classList.toggle('block');
+    iconClose.classList.toggle('hidden');
+    iconClose.classList.toggle('block');
+  });
+});

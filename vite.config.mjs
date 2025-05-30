@@ -24,7 +24,7 @@ export default defineConfig({
 
   build: {
     // en prod, bundle dans public/dist
-    outDir: "public/dist",
+    outDir: "dist",
     emptyOutDir: false,
     manifest: true,
     rollupOptions: {
