@@ -13,12 +13,12 @@
     <?php else: ?>
         <!-- Prod : lire public/dist/manifest.json et injecter -->
         <?php
-            $manifest = json_decode(file_get_contents(__DIR__ . '/vite/manifest.json'), true);
+            $manifest = json_decode(file_get_contents(__DIR__ . '/../.vite/manifest.json'), true);
             $css  = $manifest['src/main.js']['css'][0];
             $js   = $manifest['src/main.js']['file'];
         ?>
-        <link rel="stylesheet" href="/dist/<?= $css ?>">
-        <script defer src="/dist/<?= $js ?>"></script>
+        <link rel="stylesheet" href="/<?= $css ?>">
+        <script defer src="/<?= $js ?>"></script>
     <?php endif; ?>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">

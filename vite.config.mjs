@@ -6,7 +6,6 @@ export default defineConfig({
   // on reste à la racine du projet :
   root: path.resolve(__dirname),
 
-  // sert “public/” comme dossier statique (images, .htaccess…)
   publicDir: "public",
   plugins: [tailwindcss()],
   server: {
@@ -23,7 +22,6 @@ export default defineConfig({
   },
 
   build: {
-    // en prod, bundle dans public/dist
     outDir: "dist",
     emptyOutDir: false,
     manifest: true,

@@ -41,7 +41,6 @@ foreach (glob($dir . '*.md') as $file) {
         'content'     => $contentRaw,
     ];
 }
-
 include __DIR__ . '/templates/header.php';
 ?>
 

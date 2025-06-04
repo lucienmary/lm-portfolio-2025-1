@@ -1,0 +1,17 @@
+# Désactive l'affichage des répertoires vides
+Options -Indexes
+
+RewriteEngine On
+
+# Si on accède à la racine exacte (URL "/"), on sert index.php
+#    (équivalent à DirectoryIndex, mais explicite pour la réécriture)
+RewriteRule ^$ index.php [L]
+
+# Si le fichier ou le dossier demandé existe physiquement, on le sert tel quel
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Tout le reste (URL qui ne correspond pas à un fichier ou un dossier existant)
+#    renvoie directement une erreur 404
+RewriteRule ^ - [L,R=404]

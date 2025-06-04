@@ -12,10 +12,4 @@
         <p class="mt-6 pt-4 md:mt-0 md:pt-0 text-center border-t md:border-none border-t-gray-800">Lucien Mary - v1998.01.15</p>
     </div>
 </footer>
-<!-- Scripts en fin de page si nécessaire -->
-<?php if (getenv('APP_ENV') !== 'dev'): ?>
-    <script type="module" src="/dist/assets.js"></script>
-<?php endif; ?>
-</body>
-
 </html>

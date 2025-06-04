@@ -1,5 +1,6 @@
 import Swiper from "swiper/bundle";
 import "swiper/css/bundle";
+import "./main.css";
 
 document.addEventListener("DOMContentLoaded", () => {
   const swiperEl = document.querySelector(".swiper");
